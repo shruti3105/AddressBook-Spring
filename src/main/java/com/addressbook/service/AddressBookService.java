@@ -59,4 +59,9 @@ public class AddressBookService implements IAddressBookService {
 	public void deleteAddressBookContactData(int id) {
 		addressBookRepository.deleteById(id);
 	}
+	
+	@Override
+	public List<AddressBookData> getAddressByKeywordName(String keyword) {
+		return addressBookRepository.getAddressByKeywordName(keyword);
+	}
 }

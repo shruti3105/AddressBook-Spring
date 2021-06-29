@@ -66,4 +66,12 @@ public class AddressBookController {
 		ResponseDTO responseDTO = new ResponseDTO("Deleted Address Book Contact Data Successfully", "Deleted id: " + id);
 		return new ResponseEntity<ResponseDTO>(responseDTO, HttpStatus.OK);
 	}
+	
+	@GetMapping("/name/{keyword}")
+	public ResponseEntity<ResponseDTO> getEmployeesByKeywordName(@PathVariable("keyword") String keyword) {
+		List<AddressBookData> addressBookData = addressBookService.getAddressByKeywordName(keyword);
+		ResponseDTO responseDTO = new ResponseDTO("Get call for the name successful: ", addressBookData);
+		return new ResponseEntity<ResponseDTO>(responseDTO, HttpStatus.OK);
+	}
+	
 }
